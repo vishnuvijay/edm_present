@@ -40,7 +40,7 @@ def user_login(request):
                 return HttpResponse("Your account is disabled.")
       else:
             # Bad login details were provided. So we can't log the user in.
-            print "Invalid login details"
+            print ("Invalid login details")
             return HttpResponse("Invalid login details supplied.")
 
 
