@@ -1,0 +1,36 @@
+{% extends 'ics_tool/base.html' %}
+{% block head %}
+      {{ block.super }}
+      {# Load the tag library #}
+      {% load bootstrap3 %}
+
+      {# Display django.contrib.messages as Bootstrap alerts #}
+      {% bootstrap_messages %}
+
+      {% load static %}
+      <!-- Include Required Prerequisites -->
+      <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+      <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+
+      <!-- Include Date Range Picker -->
+      <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+      <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <form action="{% url 'ics_tool:index' %}" method="post"  class="form-horizontal">
+
+  {% csrf_token %}
+
+  <div class="container">
+    <div class="row">
+      <h2>Welcome, Say 'Hey Siri!' and interact with our Siri application</h2>
+      <br>
+    </div>
+  </div>
+</form>
+</div>
+
+{% endblock %}
