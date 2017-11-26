@@ -1,4 +1,4 @@
-from django.conf.urls import url
+from django.conf.urls import url, patterns
 from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.core.urlresolvers import reverse
@@ -17,3 +17,8 @@ urlpatterns = [
     url(r'^logout', user_views.user_logout, name='logout'),
 
 ]
+
+if not settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': settings.STATIC_ROOT}),
+    )
