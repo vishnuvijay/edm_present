@@ -19,6 +19,7 @@ from .models import *
 def health(request):
     return HttpResponse("3")
 
+@login_required
 def index(request):
     template_name = 'ics_tool/home.html'
 
@@ -70,6 +71,7 @@ def add_donor(request):
 
     return render(request,'ics_tool/add_donor.html',{})
 
+@login_required
 def edit_donor(request):
     template_name = 'ics_tool/add_donor.html'
 
