@@ -39,11 +39,11 @@ class Migration(migrations.Migration):
                 ('RestaurantName', models.CharField(max_length=100)),
             ],
         ),
-         migrations.CreateModel(
+        migrations.CreateModel(
             name='Feedback',
             fields=[
-                ('Feedback', = models.CharField(max_length=255)),
-                
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('Feedback', models.CharField(max_length=255)),
             ],
         ),
         migrations.CreateModel(
