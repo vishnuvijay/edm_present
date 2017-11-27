@@ -39,6 +39,13 @@ class Migration(migrations.Migration):
                 ('RestaurantName', models.CharField(max_length=100)),
             ],
         ),
+         migrations.CreateModel(
+            name='Feedback',
+            fields=[
+                ('Feedback', = models.CharField(max_length=255)),
+                
+            ],
+        ),
         migrations.CreateModel(
             name='EBDGRAFFLE',
             fields=[
