@@ -145,3 +145,23 @@ def search_donor(request):
     print(form.errors)
 
     return render(request,'ics_tool/search_donor.html',{})
+
+@login_required
+def feedback(request):
+
+    template_name = 'ics_tool/feedback.html'
+
+    if request.method == "GET":
+        return render(request, template_name)
+
+    form = FeedbackForm(request.POST)
+    if form.is_valid():
+      SearchQuery = request.POST.get('SearchQuery', '')
+      LoadDonorObj = Feedback(Feedback=SearchQuery)
+      LoadDonorObj.save()
+
+     return render(request,'ics_tool/home.html',{})
+
+    print(form.errors)
+
+    return render(request,'ics_tool/home.html',{})
