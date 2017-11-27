@@ -39,6 +39,14 @@ class SearchDonorForm(forms.ModelForm):
     class Meta:
         model = SearchDonor
         fields = '__all__'
+FeedbackForm
+
+class FeedbackForm(forms.ModelForm):
+    SearchQuery = forms.CharField(max_length=255)
+
+    class Meta:
+        model = SearchDonor
+        fields = '__all__'
 
 class AddDonationsForm(forms.ModelForm):
     SelectDonor     = forms.CharField(max_length=100)
