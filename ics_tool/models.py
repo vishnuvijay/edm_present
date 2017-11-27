@@ -8,6 +8,9 @@ from django.db import models
 class Customer(models.Model):
     CustomerId          = models.IntegerField(unique=True)
     CustomerName        = models.CharField(max_length=200)
+    
+class Feedback(models.Model):
+    Feedback = models.CharField(max_length=255)
 
 class Donors(models.Model):
     OrganizationName    = models.CharField(max_length=100)
