@@ -60,6 +60,15 @@ def add_donor(request):
       State            = request.POST.get('State', '')
       Zip              = request.POST.get('Zip', '')
       ICS              = request.POST.get('ICS', '')
+        
+      try:
+          d = Donors.objects.get(FirstName=FirstName,LastName=LastName,Email=Email)
+          print d.id
+          return render(request,'ics_tool/add_donor.html',{'Error':'Name and Email Combination Exist'})
+      except Exception as e:
+          print (e)
+          pass
+  
 
       LoadDonorObj = Donors(OrganizationName=OrganizationName,Salutation=Salutation,FirstName=FirstName,LastName=LastName,
                             Email=Email,PhoneNumber=PhoneNumber,Comments=Comments,StreetAddress=StreetAddress,City=City,State=State,Zip=Zip,ICS=ICS)
