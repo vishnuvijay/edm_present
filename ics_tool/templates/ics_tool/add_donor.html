@@ -104,6 +104,12 @@
         <form action="{% url 'ics_tool:add_donor' %}" method="post" enctype="multipart/form-data" class="form-horizontal">
 
         {% csrf_token %}
+		{% if Error %}
+            <div class="alert alert-danger fade in">
+              <a href="#" class="close" data-dismiss="alert">&times;</a>
+              <strong>Error!</strong> {{ Error }}
+            </div>
+            {% endif %}
 
             <div class="form-group">
               <label class="col-sm-2" for="Salutation">Salutation</label>
