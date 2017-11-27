@@ -63,7 +63,6 @@ def add_donor(request):
         
       try:
           d = Donors.objects.get(FirstName=FirstName,LastName=LastName,Email=Email)
-          print d.id
           return render(request,'ics_tool/add_donor.html',{'Error':'Name and Email Combination Exist'})
       except Exception as e:
           print (e)
