@@ -159,8 +159,7 @@ def feedback(request):
       SearchQuery = request.POST.get('SearchQuery', '')
       LoadDonorObj = Feedback(Feedback=SearchQuery)
       LoadDonorObj.save()
-
-     return render(request,'ics_tool/home.html',{})
+      return render(request,'ics_tool/home.html',{})
 
     print(form.errors)
 
