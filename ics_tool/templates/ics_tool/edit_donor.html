@@ -104,27 +104,33 @@
         <form action="{% url 'ics_tool:edit_donor' %}" method="post" enctype="multipart/form-data" class="form-horizontal">
 
         {% csrf_token %}
-
-            <div class="form-group">
-              <label class="col-sm-2" for="OrganizationName">Organization Name</label>
-              <div class="col-sm-4"><input class="form-control" id="OrganizationName" value = {{ donors.OrganizationName }} name="OrganizationName" placeholder="Organization Name" type="text"></div>
-            </div>
+ 
             <div class="form-group">
               <label class="col-sm-2" for="Salutation">Salutation</label>
-              <div class="col-sm-4"><input class="form-control" id="Salutation" value = {{ donors.Salutation }}  name="Salutation" placeholder="Salutation" type="text"></div>
+	      	<div class="col-sm-4">
+			<select class="form-control" name="Salutation">
+  			<option value="Mr.">Mr.</option>
+  			<option value="Ms.">Ms.</option>
+  			<option value="Mrs.">Mrs.</option>
+	      		</select>
+                </div>
             </div>
             <div class="form-group">
               <label class="col-sm-2">Donor Name</label>
-              <div class="col-sm-2"><input class="form-control" placeholder="First Name" value = {{ donors.FirstName }}  name="FirstName" type="text"></div>
-              <div class="col-sm-2"><input class="form-control" placeholder="Last Name"  value = {{ donors.LastName }} name="LastName" type="text"></div>
+              <div class="col-sm-2"><input class="form-control" placeholder="First Name" value = {{ donors.FirstName }}  name="FirstName" type="text" required></div>
+              <div class="col-sm-2"><input class="form-control" placeholder="Last Name"  value = {{ donors.LastName }} name="LastName" type="text" required></div>
+            </div>
+	    <div class="form-group">
+              <label class="col-sm-2" for="OrganizationName">Organization Name</label>
+              <div class="col-sm-4"><input class="form-control" id="OrganizationName" value = {{ donors.OrganizationName }} name="OrganizationName" placeholder="Organization Name" type="text" required></div>
             </div>
             <div class="form-group">
               <label class="col-sm-2" for="Email">Email Address</label>
-              <div class="col-sm-4"><input class="form-control" id="Email" name="Email" value = {{ donors.Email }}  placeholder="Email Address" type="email"></div>
+              <div class="col-sm-4"><input class="form-control" id="Email" name="Email" value = {{ donors.Email }}  placeholder="Email Address" type="email" required></div>
             </div>
             <div class="form-group">
               <label class="col-sm-2" for="PhoneNumber">Contact Number</label>
-              <div class="col-sm-4"><input class="form-control" id="PhoneNumber" name="PhoneNumber" value = {{ donors.PhoneNumber }}  placeholder="Enter in the format XXX-XXX-XXXX" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" ></div>
+              <div class="col-sm-4"><input class="form-control" id="PhoneNumber" name="PhoneNumber" value = {{ donors.PhoneNumber }}  placeholder="Enter in the format XXX-XXX-XXXX" type="tel" pattern="^\d{3}-\d{3}-\d{4}$" required></div>
             </div>
             <div class="form-group">
               <label class="col-sm-2" for="Comments">Comments</label>
@@ -132,18 +138,81 @@
             </div>
             <!--<div class="form-group">
               <label class="col-sm-2" for="Comments">Date</label>
-              <div class="col-sm-4"><input class="form-control" id="datepicker" name="Date" placeholder="Date" type="text"></div>
+              <div class="col-sm-4"><input class="form-control" id="datepicker" name="Date" placeholder="Date" type="text" required></div>
             </div>-->
             <input type="hidden" name="id" value={{ donors.id }}>
             <div class="form-group">
               <label class="col-sm-2" for="StreetAddress">Address Details</label>
-              <div class="col-sm-4"><input class="form-control" id="StreetAddress" value = {{ donors.StreetAddress }}  name="StreetAddress" placeholder="Street Address" type="text"></div>
+              <div class="col-sm-4"><input class="form-control" id="StreetAddress" value = {{ donors.StreetAddress }}  name="StreetAddress" placeholder="Street Address" type="text" required></div>
             </div>
             <div class="form-group">
               <label class="col-sm-2"></label>
-              <div class="col-sm-2"><input class="form-control" placeholder="City"  value = {{ donors.City }} name="City" type="text"></div>
-              <div class="col-sm-2"><input class="form-control" placeholder="State" value = {{ donors.State }}  name="State" type="text"></div>
-              <div class="col-sm-2"><input class="form-control" placeholder="Zip"  value = {{ donors.Zip }} name="Zip" type="text"></div>
+              <div class="col-sm-2"><input class="form-control" placeholder="City"  value = {{ donors.City }} name="City" type="text" required></div>
+              <div class="col-sm-4">
+			<select class="form-control" name="State" required>
+  			<option value="AZ">State</option>
+  			<option value="AL">AL</option>
+  			<option value="AK">AK</option>
+			<option value="AZ">AZ</option>
+			<option value="AR">AR</option>
+			<option value="AS">AS</option>
+			<option value="CA">CA</option>
+			<option value="CO">CO</option>
+			<option value="CT">CT</option>
+			<option value="DC">DC</option>
+			<option value="DE">DE</option>
+			<option value="FL">FL</option>
+			<option value="FM">FM</option>
+			<option value="GA">GA</option>
+			<option value="GU">GU</option>
+			<option value="HI">HI</option>
+			<option value="ID">ID</option>
+			<option value="IL">IL</option>
+			<option value="IN">IN</option>
+			<option value="IA">IA</option>
+			<option value="KS">KS</option>
+			<option value="KY">KY</option>
+			<option value="LA">LA</option>
+			<option value="ME">ME</option>
+			<option value="MD">MD</option>
+			<option value="MA">MA</option>
+			<option value="MH">MH</option>
+			<option value="MI">MI</option>
+			<option value="MN">MN</option>
+			<option value="MP">MP</option>
+			<option value="MS">MS</option>
+			<option value="MO">MO</option>
+			<option value="MT">MT</option>
+			<option value="NE">NE</option>
+			<option value="NV">NV</option>
+			<option value="NH">NH</option>
+			<option value="NJ">NJ</option>
+			<option value="NM">NM</option>
+			<option value="NY">NY</option>
+			<option value="NC">NC</option>
+			<option value="ND">ND</option>
+			<option value="OH">OH</option>
+			<option value="OK">OK</option>
+			<option value="OR">OR</option>
+			<option value="PA">PA</option>
+			<option value="PR">PR</option>
+			<option value="PW">PW</option>
+			<option value="RI">RI</option>
+			<option value="SC">SC</option>
+			<option value="SD">SD</option>
+			<option value="TN">TN</option>
+			<option value="TX">TX</option>
+			<option value="UT">UT</option>
+			<option value="VI">VI</option>
+			<option value="VT">VT</option>
+			<option value="VA">VA</option>
+			<option value="WA">WA</option>
+			<option value="WV">WV</option>
+			<option value="WI">WI</option>
+			<option value="WY">WY</option>
+	      		</select>
+                </div>
+              <div class="col-sm-2"><input class="form-control" placeholder="Zip"  value = {{ donors.Zip }} name="Zip" type="text" placeholder="XXXXX" pattern="^\d{5}$" required></div>
             </div>
             <div class="form-group">
               <label class="col-sm-2" for="ICS">Purchase by ICS</label>
